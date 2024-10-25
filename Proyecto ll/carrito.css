@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+header {
+    background-color: #373836;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+#cart {
+    font-size: 1.2em;
+}
+#cart-items {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#cart-items div {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+button {
+    color: rgb(237, 133, 15);
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+button.regresar {
+    background-color: #FFA500; 
+}
+button.regresar:hover {
+    background-color: #FF8C00; 
+}
+button.comprar {
+    background-color: #0bd039; 
+}
+button.comprar:hover {
+    background-color: #218838;
+}
+.remove-btn {
+    background-color: #dc3545; 
+    color: rgb(229, 210, 210);
+}
+.remove-btn:hover {
+    background-color: #ff0000; 
+}

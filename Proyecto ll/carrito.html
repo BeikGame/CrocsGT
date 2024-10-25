@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="carrito.css">
+</head>
+<body>
+
+<header>
+  <h1>Carrito de Compras</h1>
+  <div id="cart">
+    <span id="cart-total">0</span> Artículos - Total: Q<span id="cart-amount">0.00</span> 
+  </div>
+</header>
+
+<div id="cart-items"></div>
+<button onclick="window.history.back()">Regresar</button>
+
+<script>
+const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+const cartItemsElement = document.getElementById('cart-items');
+const cartTotalElement = document.getElementById('cart-total');
+const cartAmountElement = document.getElementById('cart-amount');
+
+function displayCartItems() {
+  if (cart.length === 0) {
+    cartItemsElement.innerHTML = '<p>No hay productos en el carrito.</p>';
+    cartTotalElement.textContent = '0';
+    cartAmountElement.textContent = '0.00';
+    return;
+  }
+
+  const itemsHTML = cart.map((item, index) => `
+    <div class="product-item">
+      <h3>${item.name}</h3>
+      <p>Precio: Q${item.price.toFixed(2)}</p>
+      <button class="remove-btn" data-index="${index}">Eliminar</button>
+    </div>`).join('');
+
+  cartItemsElement.innerHTML = itemsHTML;
+
+  const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+  cartTotalElement.textContent = cart.length;
+  cartAmountElement.textContent = totalAmount.toFixed(2);
+
+  document.querySelectorAll('.remove-btn').forEach(button => {
+    button.onclick = () => {
+      const index = button.dataset.index; 
+      cart.splice(index, 1);
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      displayCartItems(); 
+    };
+  });
+}
+
+displayCartItems();
+</script>
+
+<button><a href="talla.html">Comprar</a></button>
+
+</body>
+</html>

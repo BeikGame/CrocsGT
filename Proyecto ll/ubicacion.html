@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmar Ubicación</title>
+  <link rel="stylesheet" href="ubicacion.css">
+</head>
+<body>
+
+  <h1>Confirmar Datos de Envío</h1>
+  
+  <form id="locationForm">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" required>
+
+    <label for="address">Dirección:</label>
+    <input type="text" id="address" required>
+
+    <label for="phone">Teléfono:</label>
+    <input type="text" id="phone" required>
+
+    <button type="button" id="sendButton">Enviar Pedido</button>
+  </form>
+
+  <script>
+    const sendButton = document.getElementById("sendButton");
+
+    sendButton.addEventListener("click", () => {
+      const name = document.getElementById("name").value;
+      const address = document.getElementById("address").value;
+      const phone = document.getElementById("phone").value;
+
+      
+      const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+      let cartMessage = '';
+
+      if (cart.length > 0) {
+        cartMessage = cart.map(item => `${item.name} (Q${item.price})`).join(', ');
+      } else {
+        cartMessage = 'No hay productos en el carrito.';
+      }
+
+     
+      if (name && address && phone) {
+       
+        const whatsappMessage = `
+          Hola, mi nombre es ${name}.
+          Me gustaría realizar el siguiente pedido:
+          ${cartMessage}.
+          Mi dirección es: ${address}.
+          Mi teléfono es: ${phone}.
+        `;
+
+        
+        const adminPhoneNumber = '50232790692'; 
+
+        
+        const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        
+        window.location.href = whatsappUrl;
+      } else {
+        alert("Por favor, complete todos los campos.");
+      }
+    });
+  </script>
+
+</body>
+</html>

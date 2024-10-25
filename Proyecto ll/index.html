@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="Proyecto ll/Imagenes/Crocs-Logo-tumb-1280x720-removebg-preview.png" alt="" width="200" height="100"> 
+    </div>
+    <h1>Tienda Online Crocs</h1>
+    <div id="cart">
+      <span id="cart-total">0</span> Artículos - Total: Q<span id="cart-amount">0.00</span> 
+    </div>
+    <div class="social-media">
+      <a href="https://www.facebook.com/BetterHome21/" target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="https://wa.me/32790692" target="_blank">
+        <i class="fa fa-whatsapp"></i>
+      </a>
+      <a href="https://www.instagram.com/better_home21/" target="_blank"> 
+        <i class="fa fa-instagram"></i>
+      </a>
+    </div>
+  </header>
+
+  <div class="products">
+    <div class="product">
+      <h2>Crocs LiteRide 360 Negro</h2>
+      <p>Precio: Q70.00</p>
+      <img src="Proyecto ll/Imagenes/Crocs LiteRide.webp" alt="" width="300" height="300">
+      <button class="add-to-cart" data-price="70" data-name="Crocs LiteRide 360 Negro">Añadir al carrito</button>
+    </div>
+    <div class="product">
+      <h2>Crocs CrocBand Kids Color Negro</h2>
+      <p>Precio: Q70.00</p>
+      <img src="Proyecto ll/Imagenes/crocband.jfif" alt="" width="300" height="300"> 
+      <button class="add-to-cart" data-price="70" data-name="Crocs CrocBand Kids Color Negro">Añadir al carrito</button>
+    </div>
+    <div class="product">
+      <h2>Crocs Unisex McQueen Clog</h2>
+      <p>Precio: Q70.00</p>
+      <img src="Proyecto ll/Imagenes/crocs mquen.jfif" alt="" width="300" height="300"> 
+      <button class="add-to-cart" data-price="70" data-name="Crocs Unisex McQueen Clog">Añadir al carrito</button>
+    </div>
+  </div>
+
+  <button id="view-cart"><a href="carrito.html">Ir al carrito</a></button>
+
+  <script src="index.js"></script>
+
+  <script>
+    document.getElementById("about-button").onclick = function() {
+        window.location.href = "empresa.html";
+    };
+  </script>
+
+</body>
+</html>

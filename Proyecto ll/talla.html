@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Crocs</title>
+  <link rel="stylesheet" href="talla.css"> 
+</head>
+<body>
+  <h1>Tienda de Crocs</h1>
+
+  <div class="selection-container">
+    <h2>Selecciona tu talla y color</h2>
+    <form id="selectionForm">
+      <label for="size">Talla:</label>
+      <select id="size" required>
+        <option value="">Selecciona una talla</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+
+      <label for="color">Color:</label>
+      <select id="color" required>
+        <option value="">Selecciona un color</option>
+        <option value="negro">Negro</option>
+        <option value="blanco">Blanco</option>
+        <option value="azul">Azul</option>
+        <option value="rojo">Rojo</option>
+      </select>
+
+      <button type="button" id="confirmButton">Comprar</button> 
+    </form>
+  </div>
+
+  
+  <button onclick="window.location.href='carrito.html';">Regresar al Carrito</button>
+
+  <script>
+    const confirmButton = document.getElementById("confirmButton");
+
+    confirmButton.addEventListener("click", () => {
+      const sizeSelect = document.getElementById("size");
+      const colorSelect = document.getElementById("color");
+      const selectedSize = sizeSelect.value;
+      const selectedColor = colorSelect.value;
+
+      if (selectedSize && selectedColor) {
+        alert(`Has seleccionado la talla ${selectedSize} en color ${selectedColor}.`);
+        window.location.href = 'ubicacion.html'; 
+      } else {
+        alert("Por favor, selecciona una talla y un color.");
+      }
+    });
+  </script>
+</body>
+</html>
